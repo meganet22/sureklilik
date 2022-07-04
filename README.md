@@ -1,0 +1,2 @@
+# s-reklilik
+Süreklilik
