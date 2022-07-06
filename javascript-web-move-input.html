@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 350px;
+            height: 350px;
+            background-color: orange;
+            border-radius: 10px;
+            position: relative;
+        }
+        #box {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #controls {
+            width: 350px;
+            display: flex;
+        }
+        #controls button {
+            width: 25%;
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="box"></div>
+    </div>
+    <div id="controls">
+        <button>Left</button>
+        <button>Right</button>
+        <button>Down</button>
+        <button>Up</button>
+    </div>
+
+
+
+
+
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="popup-effect" >
+                    <div class="rightSidebarButton" onclick="toggleLeftSidebar()"></div>
+
+                    <div id="rightSidebar">
+                        
+                    </div>
+                    <div class="leftSidebarButton"></div>
+                    
+
+
+                </div>
+                
+            </div>
+
+            <div class="swiper-slide">
+                Slide 2
+            </div>
+
+            <div class="swiper-slide">
+                Slide 3
+            </div>
+
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+  
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="yeni4.js"></script>
+  
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            direction: "vertical",
+            slidesPerView: 1,
+            spaceBetween: 30,
+            mousewheel: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+
+
+
+
+
+
+
+
+    <script>
+    var pos = [0, 0], box = document.querySelector("#box");
+    document.querySelector("#controls").onclick = function(e) {
+        if(e.target.nodeName === "BUTTON") {
+            switch(e.target.textContent) {
+                case "Right": {
+                    box.style.left = `${pos[0] + 15 > 300 ? 300 : pos[0] += 15}px`;
+                    break;
+                }
+                case "Left": {
+                    box.style.left = `${pos[0] - 15 < 0 ? 0 : pos[0] -= 15}px`;
+                    break;
+                }
+                case "Down": {
+                    box.style.top = `${pos[1] + 15 > 300 ? 300 : pos[1] += 15}px`;
+                    break;
+                }
+                case "Up": {
+                    box.style.top = `${pos[1] - 80 < 0 ? 0 : pos[1] -= 80}px`;
+                    break;
+                }
+            }
+        }
+    };   
+    
+    </script>
+</body>
+</html>
