@@ -1,2 +1,2 @@
-# s-reklilik
+# sureklilik
 Süreklilik
